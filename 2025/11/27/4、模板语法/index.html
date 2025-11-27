@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="如何使用Vue CLI 创建项目, 博客，技术，前端，后端">
+    <meta name="keywords" content="模板语法, 博客，技术，前端，后端">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何使用Vue CLI 创建项目 | 小毛的博客</title>
+    <title>模板语法 | 小毛的博客</title>
     <link rel="icon" type="image/png" href="/mao.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/mao.github.io/libs/awesome/css/all.css">
@@ -424,7 +424,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">如何使用Vue CLI 创建项目</h1>
+                    <h1 class="description center-align post-title">模板语法</h1>
                 </div>
             </div>
         </div>
@@ -565,7 +565,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-11-26
+                    2025-11-27
                 </div>
                 
 
@@ -586,19 +586,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用Vue-CLI-创建项目"><a href="#使用Vue-CLI-创建项目" class="headerlink" title="使用Vue CLI 创建项目"></a>使用Vue CLI 创建项目</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><p>打开cmd 命令输入：node -v,npm -v 确保能够正常输出版本号，npm的版本号推荐 9以上</p>
-<p><img src="/mao.github.io/asset/0_1126_01.png"></p>
-<h2 id="二、在浏览器输入网址："><a href="#二、在浏览器输入网址：" class="headerlink" title="二、在浏览器输入网址："></a>二、在浏览器输入网址：</h2><p><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/installation.html">https://cli.vuejs.org/zh/guide/installation.html</a><br><img src="/mao.github.io/asset/0_1126_02.png"></p>
-<h2 id="三、-打开cmd命令框输入：npm-install-g-vue-cli-安装vue。安装完成后输入：npm-install-g-vue-cli-显示出版本号后即安装成功"><a href="#三、-打开cmd命令框输入：npm-install-g-vue-cli-安装vue。安装完成后输入：npm-install-g-vue-cli-显示出版本号后即安装成功" class="headerlink" title="三、 打开cmd命令框输入：npm install -g @vue/cli 安装vue。安装完成后输入：npm install -g @vue/cli 显示出版本号后即安装成功"></a>三、 打开cmd命令框输入：npm install -g @vue/cli 安装vue。安装完成后输入：npm install -g @vue/cli 显示出版本号后即安装成功</h2><p><img src="/mao.github.io/asset/0_1126_06.png"></p>
-<p><img src="/mao.github.io/asset/0_1126_03.png"></p>
-<h2 id="三、安装完成打开刚刚的浏览器页面，点击左侧基础中的创建一个项目。"><a href="#三、安装完成打开刚刚的浏览器页面，点击左侧基础中的创建一个项目。" class="headerlink" title="三、安装完成打开刚刚的浏览器页面，点击左侧基础中的创建一个项目。"></a>三、安装完成打开刚刚的浏览器页面，点击左侧基础中的创建一个项目。</h2><p><img src="/mao.github.io/asset/0_1126_04.png"></p>
-<h2 id="四、创建Vue项目-在cmd命令中输入-vue-create-项目名称"><a href="#四、创建Vue项目-在cmd命令中输入-vue-create-项目名称" class="headerlink" title="四、创建Vue项目,在cmd命令中输入:vue create 项目名称"></a>四、创建Vue项目,在cmd命令中输入:vue create 项目名称</h2><p><img src="/mao.github.io/asset/0_1126_05.png"></p>
-<blockquote>
-<p>注意：</p>
-<p>npm run serve 是启动项目的意思，其中Local后面的网络地址就是你启动项目的地址</p>
-</blockquote>
-<p><img src="/mao.github.io/asset/0_1126_07.png"></p>
+                <h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><p>Vue 使用基于 HTML 的模板语法，允许你声明式地将渲染后的 DOM 绑定到底层组件实例的数据上。所有 Vue 模板都是语法有效的 HTML，可以通过符合规范的浏览器和 HTML 解析器进行解析。</p>
+<p>在底层，Vue 将模板编译成高度优化的 JavaScript 代码。结合反应系统，Vue 能够智能地计算出需要重新渲染的最少组件数量，并在应用状态变化时应用最少的 DOM作。</p>
+<p>如果你熟悉虚拟DOM的概念，并更喜欢JavaScript的强大功能，你也可以<a target="_blank" rel="noopener" href="https://vuejs.org/guide/extras/render-function.html" title="直接编写渲染函数">直接编写渲染函数</a>而非模板，并可选支持JSX。不过请注意，它们的编译优化程度不及模板。</p>
+<h2 id="文本插值"><a href="#文本插值" class="headerlink" title="文本插值"></a>文本插值</h2><p>最基本的数据绑定形式是使用“Mustache”语法（双卷括号）进行文本插值：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Message: {{ msg }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
+<p>胡须标签将被<a target="_blank" rel="noopener" href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html#declaring-reactive-state%22%E6%9B%BF%E6%8D%A2%E4%B8%BA%E5%AF%B9%E5%BA%94%E7%BB%84%E4%BB%B6%E5%AE%9E%E4%BE%8B%E4%B8%AD%E7%9A%84%22">替换为对应组件实例中的</a>属性值。每当房产发生变化时，也会进行更新。<br><code>msg</code> <code>msg</code></p>
+<h2 id="原始的HTML"><a href="#原始的HTML" class="headerlink" title="原始的HTML"></a>原始的HTML</h2><p>双胡子将数据解读为纯文本，而非HTML格式。要输出真实的 HTML，你需要使用 v-html 指令：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using text interpolation: {{ rawHtml }}<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Using v-html directive: <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"rawHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>使用文本插值：&lt;span style=“color： red”&gt;这应该是red.<br>使用 v-html 指令：这应该是红色的。</p>
+</blockquote>
+<p>这里我们遇到了新情况。你看到的这个属性叫做指令。指令前缀为 表示它们是 Vue 提供的特殊属性，正如你可能猜到的，它们对渲染后的 DOM 应用特殊的反应行为。这里，我们基本上是在说“保持该元素内部HTML与当前活跃实例的属性保持最新”。<code>v-html v- rawHtml</code></p>
+<p>将 的内容替换为属性的值，将其解释为纯 HTML——数据绑定被忽略。注意你不能用它来编写模板部分文件，因为Vue不是基于字符串的模板引擎。相反，组件被优先考虑为用户界面重用和组合的基本单位。<code>span</code> <code> rawHtml</code> <code>v-html</code></p>
+<blockquote>
+<p>安全警告<br>在网站上动态渲染任意 HTML 可能非常危险，因为这很容易导致 XSS 漏洞。仅用于可信内容，绝&gt;不用于用户提供的内容。v-html</p>
+</blockquote>
+<h2 id="属性绑定"><a href="#属性绑定" class="headerlink" title="属性绑定"></a>属性绑定</h2><p>胡须不能在HTML属性中使用。相反，使用V-bind指令：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>该指令指示 Vue 保持元素属性与组件属性的同步。如果绑定值为或，则该属性将从渲染元素中移除。<code>v-bind id dynamicId null undefined</code></p>
+<h3 id="速记"><a href="#速记" class="headerlink" title="速记"></a>速记</h3><p>由于 被广泛使用，它有专门的速写语法：v-bind</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>以 开头的属性可能看起来与普通 HTML 略有不同，但它实际上是属性名称的有效字符，所有支持 Vue 的浏览器都能正确解析它。此外，它们不会出现在最终渲染的标记中。简写语法是可选的，但你以后了解它的用法时，应该会很欣赏它。:</p>
+<blockquote>
+<p>在本指南的其余部分，我们将在代码示例中使用简写语法，因为这是Vue开发者最常用的用法。</p>
+</blockquote>
+<h3 id="同名速记"><a href="#同名速记" class="headerlink" title="同名速记"></a>同名速记</h3><ul>
+<li>仅支持3.4+</li>
+</ul>
+<p>如果该属性与被绑定的 JavaScript 值的变量名相同，则语法可以进一步简化以省略该属性值：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- same as :id="id" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:id</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- this also works --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这类似于 JavaScript 中宣告对象时的属性简写语法。注意，这个功能仅在 Vue 3.4 及以上版本中可用。</p>
+<h3 id="布尔属性"><a href="#布尔属性" class="headerlink" title="布尔属性"></a>布尔属性</h3><p>布尔属性是可以通过元素上的存在来指示真值或假值的属性。例如，disabled 是最常用的布尔属性之一。</p>
+<p>v-bind在这种情况下，工作方式略有不同：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">:disabled</span>=<span class="string">"isButtonDisabled"</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果属性具有真实值，则会被包含在内。如果值为空字符串，也将包含该变量，保持与 的一致性。对于其他虚假值，属性将被省略。<code>disabledisButtonDisabled&lt;button disabled=""&gt;</code></p>
+<h3 id="动态绑定多属性"><a href="#动态绑定多属性" class="headerlink" title="动态绑定多属性"></a>动态绑定多属性</h3><p>如果你有一个代表多个属性的 JavaScript 对象，看起来如下：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const objectOfAttrs = {</span><br><span class="line">  id: 'container',</span><br><span class="line">  class: 'wrapper',</span><br><span class="line">  style: 'background-color:green'</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>你可以通过使用不带参数的函数将它们绑定到单个元素：v-bind</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind</span>=<span class="string">"objectOfAttrs"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="使用-JavaScript-表达式"><a href="#使用-JavaScript-表达式" class="headerlink" title="使用 JavaScript 表达式"></a>使用 JavaScript 表达式</h2><p>到目前为止，我们只绑定了模板中的简单属性键。但Vue实际上支持所有数据绑定中JavaScript表达式的全部功能：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{{ number + <span class="number">1</span> }}</span><br><span class="line"></span><br><span class="line">{{ ok ? <span class="string">'YES'</span> : <span class="string">'NO'</span> }}</span><br><span class="line"></span><br><span class="line">{{ message.<span class="title function_">split</span>(<span class="string">''</span>).<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">''</span>) }}</span><br><span class="line"></span><br><span class="line">&lt;div :id=<span class="string">"`list-${id}`"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这些表达式将在当前组件实例的数据范围内作为 JavaScript 进行评估。</p>
+<p>在 Vue 模板中，JavaScript 表达式可用于以下位置：</p>
+<ul>
+<li>文本内部插值（胡须）</li>
+<li>在任何 Vue 指令的属性值中（以 开头的特殊属性）v-)</li>
+</ul>
+<h3 id="仅表达式"><a href="#仅表达式" class="headerlink" title="仅表达式"></a>仅表达式</h3><p>每个绑定只能包含一个表达式。表达式是一段可以被计算为值的代码。一个简单的检查是它是否可以在之后使用。return</p>
+<p>因此，以下方法将不起作用：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="variable language_">this</span> is a statement, not an <span class="attr">expression</span>: --&gt;</span><br><span class="line">{{ <span class="keyword">var</span> a = <span class="number">1</span> }}</span><br><span class="line"></span><br><span class="line">&lt;!-- flow control won<span class="string">'t work either, use ternary expressions --&gt;</span></span><br><span class="line"><span class="string">{{ if (ok) { return message } }}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>可以在绑定表达式中调用一个组件暴露方法：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;time :title=<span class="string">"toTitleDate(date)"</span> :datetime=<span class="string">"date"</span>&gt;</span><br><span class="line">  {{ <span class="title function_">formatDate</span>(date) }}</span><br><span class="line">&lt;/time&gt;</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>提示<br>绑定表达式内调用的函数每次组件更新都会被调用，因此不应有副作用，比如更改数据或触发异步作。</p>
+</blockquote>
+<h3 id="限制全球访问"><a href="#限制全球访问" class="headerlink" title="限制全球访问"></a>限制全球访问</h3><p>模板表达式是沙箱式，只能访问有限的全局列表。该列表展示了常用的内置全局函数，如 和 。<code>Math Date</code></p>
+<p>未明确包含在列表中的全局文件，例如用户附加属性，将无法在模板表达式中访问。不过，你可以通过在 app.config.globalProperties 中添加所有 Vue 表达式，显式地为它们定义额外的全局函数。window</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>指令是带有前缀的特殊属性。Vue 提供了许多内置指令，包括我们上面介绍的。v- v-htm lv-bind</p>
+<p>指令属性值通常为单个JavaScript表达式（例外，和，后文将在各自章节中讨论）。指令的工作是在表达式值变化时被动地应用更新到DOM上。以v-if为例：v-for v-on v-slot</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>Now you see me<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这里，指令会根据表达式值的真实性来移除或插入该元素。<code>v-if &lt;p&gt; seen</code></p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>有些指令可以接受一个“参数”，在指令名称后面用冒号表示。例如，指令用于被动更新HTML属性：v-bind</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里， 是参数，指示指令将元素属性绑定为表达式的值。在速记中，论元之前的所有内容（即 ）都浓缩为一个字符。<code>href v-bind href ur lv-bind: :</code></p>
+<p>另一个例子是指令，它监听DOM事件：v-on</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里，论元是需要听的事件名称：。 有对应的简写，即字符。我们也会更详细地讨论事件处理。<code>click v-on @</code></p>
+<h3 id="动态论证"><a href="#动态论证" class="headerlink" title="动态论证"></a>动态论证</h3>
                 
             </div>
             <hr/>
@@ -624,7 +690,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/26/%E4%BD%BF%E7%94%A8Vue%20CLI%20%E5%88%9B%E5%BB%BAVue%E9%A1%B9%E7%9B%AE/">https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/26/%E4%BD%BF%E7%94%A8Vue%20CLI%20%E5%88%9B%E5%BB%BAVue%E9%A1%B9%E7%9B%AE/</a>
+                    <a href="https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/4%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/4%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -833,9 +899,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/mao.github.io/2025/11/27/4%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">
                     <div class="card-image">
@@ -853,9 +920,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -868,6 +935,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -886,13 +954,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mao.github.io/2025/11/25/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/">
+                <a href="/mao.github.io/2025/11/26/%E4%BD%BF%E7%94%A8Vue%20CLI%20%E5%88%9B%E5%BB%BAVue%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/mao.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="如何搭建个人博客网站">
+                        <img src="/mao.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="如何使用Vue CLI 创建项目">
                         
-                        <span class="card-title">如何搭建个人博客网站</span>
+                        <span class="card-title">如何使用Vue CLI 创建项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -903,14 +971,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/mao.github.io/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/mao.github.io/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -920,8 +988,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/mao.github.io/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/mao.github.io/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
