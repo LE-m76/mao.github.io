@@ -664,7 +664,25 @@
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>这里，论元是需要听的事件名称：。 有对应的简写，即字符。我们也会更详细地讨论事件处理。<code>click v-on @</code></p>
-<h3 id="动态论证"><a href="#动态论证" class="headerlink" title="动态论证"></a>动态论证</h3>
+<h3 id="动态论证"><a href="#动态论证" class="headerlink" title="动态论证"></a>动态论证</h3><p>也可以通过用方括号包裹指令参数来使用JavaScript表达式：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">Note that there are some constraints to the argument expression,</span></span><br><span class="line"><span class="comment">as explained in the "Dynamic Argument Value Constraints" and "Dynamic Argument Syntax Constraints" sections below.</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:</span>[<span class="attr">attributeName</span>]=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:</span>[<span class="attr">attributeName</span>]=<span class="string">"url"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里，将作为 JavaScript 表达式动态评估，其值将作为参数的最终值。例如，如果你的组件实例有一个数据属性，其值为 ，那么该绑定等价于 。<code>attributeName attributeName "href" v-bind:href</code></p>
+<p>同样，你也可以使用动态参数将处理程序绑定到动态事件名称：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:</span>[<span class="attr">eventName</span>]=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- shorthand --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> @[<span class="attr">eventName</span>]=<span class="string">"doSomething"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在此例中，当 的值为时，将等价于 。<code>eventName "focus" v-on:[eventName] v-on:focus</code></p>
+<h3 id="动态参数值约束"><a href="#动态参数值约束" class="headerlink" title="动态参数值约束"></a>动态参数值约束</h3><p>动态参数通常应值为字符串，例外。特殊值可以用来显式地移除绑定。任何其他非字符串值都会触发警告。<code>null null</code></p>
+<h3 id="动态参数语法约束"><a href="#动态参数语法约束" class="headerlink" title="动态参数语法约束"></a>动态参数语法约束</h3><p>动态参数表达式存在一些语法约束，因为某些字符，如空格和引号，在HTML属性名称中是无效的。例如，以下内容无效：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- This will trigger a compiler warning. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:</span>['<span class="attr">foo</span>' + <span class="attr">bar</span>]=<span class="string">"value"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果你需要传递一个复杂的动态参数，最好使用计算性质，我们稍后会介绍。</p>
+<p>使用DOM内模板（直接写入HTML文件的模板）时，也应避免使用大写字符命名键，因为浏览器会强制属性名改为小写：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:</span>[<span class="attr">someAttr</span>]=<span class="string">"value"</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上述内容将在 DOM 模板中转换为。如果你的组件有属性而不是 ，你的代码将无法正常工作。单文件组件中的模板不受此约束。<code>:[someattr] someAttr someattr</code></p>
+<h3 id="修饰-符"><a href="#修饰-符" class="headerlink" title="修饰 符"></a>修饰 符</h3><p>修饰语是用点表示的特殊后缀，表示指令应以某种特殊方式绑定。例如，修饰语告诉指令在触发事件时调用：.preventv-onevent.preventDefault()</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
                 
             </div>
             <hr/>
@@ -899,18 +917,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/mao.github.io/2025/11/27/4%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">
+                <a href="/mao.github.io/2025/11/27/5%E3%80%81Class%20%E4%B8%8E%20Style%20%E7%BB%91%E5%AE%9A/">
                     <div class="card-image">
                         
                         
-                        <img src="/mao.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="模板语法">
+                        <img src="/mao.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="Class 与 Style 绑定">
                         
-                        <span class="card-title">模板语法</span>
+                        <span class="card-title">Class 与 Style 绑定</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -920,9 +937,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -935,7 +952,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
