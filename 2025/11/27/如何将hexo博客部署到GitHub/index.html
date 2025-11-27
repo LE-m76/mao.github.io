@@ -595,7 +595,14 @@
 <h2 id="2、修改-config-yml相关配置"><a href="#2、修改-config-yml相关配置" class="headerlink" title="2、修改 _config.yml相关配置"></a>2、修改 _config.yml相关配置</h2><p>打开自己hexo创建的博客中 _config.yml 的文件，使用代码编辑器打开。在文档的最后面添加如下代码：<br><img src="/mao.github.io/asset/0_1127_06.png"></p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: 'git'</span><br><span class="line">  repo: git@github.com:LE-m76/mao.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></tbody></table></figure>
 <p><img src="/mao.github.io/asset/0_1127_08.png"><br>复制SSH里面的路径到repo 里面</p>
-<p>注意：使用SSH 前需要我们在GiHubt中添加证书,证书的生成方式是通过Git来生成的<br><img src="/mao.github.io/asset/0_1127_09.png"><br><img src="/mao.github.io/asset/0_1127_10.png"><br><img src="/mao.github.io/asset/0_1127_11.png"><br><img src="/mao.github.io/asset/0_1127_12.png"><br>不知到密钥的可以在我的博客中找到 如何 使用Git生成密钥的文章 </p>
+<p>注意：使用SSH 前需要我们在GiHubt中添加证书,证书的生成方式是通过Git来生成的<br><img src="/mao.github.io/asset/0_1127_09.png"><br><img src="/mao.github.io/asset/0_1127_10.png"><br><img src="/mao.github.io/asset/0_1127_11.png"><br><img src="/mao.github.io/asset/0_1127_12.png"><br>不知到密钥的可以在我的博客中找到 如何 使用Git生成密钥的文章</p>
+<h2 id="3、将hexo部署到GitHub"><a href="#3、将hexo部署到GitHub" class="headerlink" title="3、将hexo部署到GitHub"></a>3、将hexo部署到GitHub</h2><p>使用cmd命令打开个人博客的文件夹的cmd命令。</p>
+<h3 id="首先要安装hexo-deployer-git"><a href="#首先要安装hexo-deployer-git" class="headerlink" title="首先要安装hexo-deployer-git"></a>首先要安装hexo-deployer-git</h3><p>在打开的命令框中输入：npm install hexo-deployer-git –save。<br>等待安装完成后输入：hexo clean &amp;&amp; hexo deploy 或者 hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy；显示如下内容则表示部署成功！</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><img src="/mao.github.io/asset/0_1127_13.png"></p>
 
                 
             </div>
