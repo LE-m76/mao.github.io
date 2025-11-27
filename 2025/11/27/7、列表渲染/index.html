@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Class 与 Style 绑定, 博客，技术，前端，后端">
+    <meta name="keywords" content="列表渲染, 博客，技术，前端，后端">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Class 与 Style 绑定 | 小毛的博客</title>
+    <title>列表渲染 | 小毛的博客</title>
     <link rel="icon" type="image/png" href="/mao.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/mao.github.io/libs/awesome/css/all.css">
@@ -424,7 +424,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Class 与 Style 绑定</h1>
+                    <h1 class="description center-align post-title">列表渲染</h1>
                 </div>
             </div>
         </div>
@@ -586,100 +586,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Class-与-Style-绑定"><a href="#Class-与-Style-绑定" class="headerlink" title="Class 与 Style 绑定"></a>Class 与 Style 绑定</h1><p>数据绑定的一个常见需求场景是操纵元素的 CSS class 列表和内联样式。因为 class 和 style 都是 attribute，我们可以和其他 attribute 一样使用 v-bind 将它们和动态的字符串绑定。但是，在处理比较复杂的绑定时，通过拼接生成字符串是麻烦且易出错的。因此，Vue 专门为 class 和 style 的 v-bind 用法提供了特殊的功能增强。除了字符串外，表达式的值也可以是对象或数组。</p>
-<h2 id="绑定-HTML-class"><a href="#绑定-HTML-class" class="headerlink" title="绑定 HTML class"></a>绑定 HTML class</h2><h3 id="绑定对象"><a href="#绑定对象" class="headerlink" title="绑定对象"></a>绑定对象</h3><p>我们可以给 :class (v-bind:class 的缩写) 传递一个对象来动态切换 class：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"{ active: isActive }"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>上面的语法表示 active 是否存在取决于数据属性 isActive 的真假值。</p>
-<p>你可以在对象中写多个字段来操作多个 class。此外，:class 指令也可以和一般的 class attribute 共存。举例来说，下面这样的状态：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">isActive</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">hasError</span>: <span class="literal">false</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+                <h1 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h1><h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><p>我们可以使用 v-for 指令基于一个数组来渲染一个列表。v-for 指令的值需要使用 item in items 形式的特殊语法，其中 items 是源数据的数组，而 item 是迭代项的<strong>别名</strong>：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">items</span>: [{ <span class="attr">message</span>: <span class="string">'Foo'</span> }, { <span class="attr">message</span>: <span class="string">'Bar'</span> }]</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>配合以下模板：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"static"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:class</span>=<span class="string">"{ active: isActive, 'text-danger': hasError }"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">  {{ item.message }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>渲染的结果会是：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static active"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>当 isActive 或者 hasError 改变时，class 列表会随之更新。举例来说，如果 hasError 变为 true，class 列表也会变成 “static active text-danger”。</p>
-<p>绑定的对象并不一定需要写成内联字面量的形式，也可以直接绑定一个对象：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">classObject</span>: {</span><br><span class="line">      <span class="attr">active</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">'text-danger'</span>: <span class="literal">false</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在 v-for 块中可以完整地访问父作用域内的属性和变量。v-for 也支持使用可选的第二个参数表示当前项的位置索引。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">parentMessage</span>: <span class="string">'Parent'</span>,</span><br><span class="line">    <span class="attr">items</span>: [{ <span class="attr">message</span>: <span class="string">'Foo'</span> }, { <span class="attr">message</span>: <span class="string">'Bar'</span> }]</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"classObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span></span><br><span class="line">  {{ parentMessage }} - {{ index }} - {{ item.message }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>这将渲染：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>我们也可以绑定一个返回对象的计算属性。这是一个常见且很有用的技巧：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">isActive</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">error</span>: <span class="literal">null</span></span><br><span class="line">  }</span><br><span class="line">},</span><br><span class="line"><span class="attr">computed</span>: {</span><br><span class="line">  <span class="title function_">classObject</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">      <span class="attr">active</span>: <span class="variable language_">this</span>.<span class="property">isActive</span> &amp;&amp; !<span class="variable language_">this</span>.<span class="property">error</span>,</span><br><span class="line">      <span class="string">'text-danger'</span>: <span class="variable language_">this</span>.<span class="property">error</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">error</span>.<span class="property">type</span> === <span class="string">'fatal'</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"classObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="绑定数组"><a href="#绑定数组" class="headerlink" title="绑定数组"></a>绑定数组</h3><p>我们可以给 :class 绑定一个数组来渲染多个 CSS class：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">activeClass</span>: <span class="string">'active'</span>,</span><br><span class="line">    <span class="attr">errorClass</span>: <span class="string">'text-danger'</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[activeClass, errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>渲染的结果是：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"active text-danger"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果你也想在数组中有条件地渲染某个 class，你可以使用三元表达式：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>errorClass 会一直存在，但 activeClass 只会在 isActive 为真时才存在。</p>
-<p>然而，这可能在有多个依赖条件的 class 时会有些冗长。因此也可以在数组中嵌套对象：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"[{ [activeClass]: isActive }, errorClass]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="在组件上使用"><a href="#在组件上使用" class="headerlink" title="在组件上使用"></a>在组件上使用</h3><blockquote>
-<p>本节假设你已经有 Vue 组件的知识基础。如果没有，你也可以暂时跳过，以后再阅读。</p>
+<blockquote>
+<ul>
+<li>Parent - 0 - Foo</li>
+<li>Parent - 1 - Bar</li>
+</ul>
 </blockquote>
-<p>对于只有一个根元素的组件，当你使用了 class attribute 时，这些 class 会被添加到根元素上并与该元素上已有的 class 合并。</p>
-<p>举例来说，如果你声明了一个组件名叫 MyComponent，模板如下：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 子组件模板 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"foo bar"</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>v-for 变量的作用域和下面的 JavaScript 代码很类似：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parentMessage = <span class="string">'Parent'</span></span><br><span class="line"><span class="keyword">const</span> items = [</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">items.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// 可以访问外层的 `parentMessage`</span></span><br><span class="line">  <span class="comment">// 而 `item` 和 `index` 只在这个作用域可用</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(parentMessage, item.<span class="property">message</span>, index)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 
-<p>在使用时添加一些 class：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在使用组件时 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">class</span>=<span class="string">"baz boo"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>注意 v-for 是如何对应 forEach 回调的函数签名的。实际上，你也可以在定义 v-for 的变量别名时使用解构，和解构函数参数类似：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"{ message } in items"</span>&gt;</span></span><br><span class="line">  {{ message }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 有 index 索引时 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"({ message }, index) in items"</span>&gt;</span></span><br><span class="line">  {{ message }} {{ index }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>渲染出的 HTML 为：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"foo bar baz boo"</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>对于多层嵌套的 v-for，作用域的工作方式和函数的作用域很类似。每个 v-for 作用域都可以访问到父级作用域：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"childItem in item.children"</span>&gt;</span></span><br><span class="line">    {{ item.message }} {{ childItem }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>Class 的绑定也是同样的：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">:class</span>=<span class="string">"{ active: isActive }"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>你也可以使用 of 作为分隔符来替代 in，这更接近 JavaScript 的迭代器语法：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>当 isActive 为真时，被渲染的 HTML 会是：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"foo bar active"</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="v-for-与对象"><a href="#v-for-与对象" class="headerlink" title="v-for 与对象"></a>v-for 与对象</h2><p>你也可以使用 v-for 来遍历一个对象的所有属性。遍历的顺序会基于对该对象调用 Object.values() 的返回值来决定。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">myObject</span>: {</span><br><span class="line">      <span class="attr">title</span>: <span class="string">'How to do lists in Vue'</span>,</span><br><span class="line">      <span class="attr">author</span>: <span class="string">'Jane Doe'</span>,</span><br><span class="line">      <span class="attr">publishedAt</span>: <span class="string">'2016-04-10'</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>如果你的组件有多个根元素，你将需要指定哪个根元素来接收这个 class。你可以通过组件的 $attrs 属性来指定接收的元素：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MyComponent 模板使用 $attrs 时 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">:class</span>=<span class="string">"$attrs.class"</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>This is a child component<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"value in myObject"</span>&gt;</span></span><br><span class="line">    {{ value }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">class</span>=<span class="string">"baz"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可以通过提供第二个参数表示属性名 (例如 key)：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value, key) in myObject"</span>&gt;</span></span><br><span class="line">  {{ key }}: {{ value }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>这将被渲染为：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"baz"</span>&gt;</span>Hi!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>This is a child component<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>第三个参数表示位置索引：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value, key, index) in myObject"</span>&gt;</span></span><br><span class="line">  {{ index }}. {{ key }}: {{ value }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="绑定内联样式"><a href="#绑定内联样式" class="headerlink" title="绑定内联样式"></a>绑定内联样式</h2><h3 id="绑定对象-1"><a href="#绑定对象-1" class="headerlink" title="绑定对象"></a>绑定对象</h3><p>:style 支持绑定 JavaScript 对象值，对应的是 HTML 元素的 style 属性：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">activeColor</span>: <span class="string">'red'</span>,</span><br><span class="line">    <span class="attr">fontSize</span>: <span class="number">30</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="在-v-for-里使用范围值"><a href="#在-v-for-里使用范围值" class="headerlink" title="在 v-for 里使用范围值"></a>在 v-for 里使用范围值</h2><p>v-for 可以直接接受一个整数值。在这种用例中，会将该模板基于 1…n 的取值范围重复多次。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>{{ n }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"{ color: activeColor, fontSize: fontSize + 'px' }"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>注意此处 n 的初值是从 1 开始而非 0。</p>
+<h2 id="template-上的-v-for"><a href="#template-上的-v-for" class="headerlink" title="template 上的 v-for"></a>template 上的 v-for</h2><p>与模板上的 v-if 类似，你也可以在 template 标签上使用 v-for 来渲染一个包含多个元素的块。例如：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>{{ item.msg }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span> <span class="attr">role</span>=<span class="string">"presentation"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>尽管推荐使用 camelCase，但 :style 也支持 kebab-cased 形式的 CSS 属性 key (对应其 CSS 中的实际名称)，例如：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"{ 'font-size': fontSize + 'px' }"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="v-for-与-v-if"><a href="#v-for-与-v-if" class="headerlink" title="v-for 与 v-if"></a>v-for 与 v-if</h2><p>当它们同时存在于一个节点上时，v-if 比 v-for 的优先级更高。这意味着 v-if 的条件将无法访问到 v-for 作用域内定义的变量别名：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment"> 这会抛出一个错误，因为属性 todo 此时</span></span><br><span class="line"><span class="comment"> 没有在该实例上定义</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></span><br><span class="line">  {{ todo.name }}</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>直接绑定一个样式对象通常是一个好主意，这样可以使模板更加简洁：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">styleObject</span>: {</span><br><span class="line">      <span class="attr">color</span>: <span class="string">'red'</span>,</span><br><span class="line">      <span class="attr">fontSize</span>: <span class="string">'13px'</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在外先包装一层 template 再在其上使用 v-for 可以解决这个问题 (这也更加明显易读)：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></span><br><span class="line">    {{ todo.name }}</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"styleObject"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>注意<br>同时使用 v-if 和 v-for 是不推荐的，因为这样二者的优先级不明显。<br>两种常见的情况可能导致这种用法：</p>
+<ul>
+<li>过滤列表中的项目 (例如，v-for=”user in users” v-if=”user.isActive”)。在这种情况下，可以用一个新的计算属性来替换 users，该属性返回过滤后的列表 (例如 activeUsers)。</li>
+<li>避免渲染应该隐藏的列表 (例如 v-for=”user in users” v-if=”shouldShowUsers”)。在这种情况下，将 v-if 移至容器元素 (如 ul、ol)。</li>
+</ul>
+</blockquote>
+<h2 id="通过-key-管理状态"><a href="#通过-key-管理状态" class="headerlink" title="通过 key 管理状态"></a>通过 key 管理状态</h2><p>Vue 默认按照“就地更新”的策略来更新通过 v-for 渲染的元素列表。当数据项的顺序改变时，Vue 不会随之移动 DOM 元素的顺序，而是就地更新每个元素，确保它们在原本指定的索引位置上渲染。</p>
+<p>默认模式是高效的，但<strong>只适用于列表渲染输出的结果不依赖子组件状态或者临时 DOM 状态 (例如表单输入值) 的情况。</strong></p>
+<p>为了给 Vue 一个提示，以便它可以跟踪每个节点的标识，从而重用和重新排序现有的元素，你需要为每个元素对应的块提供一个唯一的 key attribute：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>同样的，如果样式对象需要更复杂的逻辑，也可以使用返回样式对象的计算属性。</p>
-<p>:style 指令也可以和常规的 style attribute 共存，就像 :class。</p>
-<p>模板：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color: red"</span> <span class="attr">:style</span>=<span class="string">"'font-size: 1em'"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>当你使用 template v-for 时，key 应该被放置在这个 template 容器上：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">:key</span>=<span class="string">"todo.name"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>{{ todo.name }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>这将被渲染为：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color: red; font-size: 1em;"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>注意<br>key 在这里是一个通过 v-bind 绑定的特殊 attribute。请不要和在 v-for 中使用对象里所提到的对象属性名相混淆。</p>
+</blockquote>
+<p>推荐在任何可行的时候为 v-for 提供一个 key attribute，除非所迭代的 DOM 内容非常简单 (例如：不包含组件或有状态的 DOM 元素)，或者你想有意采用默认行为来提高性能。</p>
+<p>key 绑定的值期望是一个基础类型的值，例如字符串或 number 类型。不要用对象作为 v-for 的 key。关于 key attribute 的更多用途细节，请参阅 key API 文档。</p>
+<h2 id="组件上使用-v-for"><a href="#组件上使用-v-for" class="headerlink" title="组件上使用 v-for"></a>组件上使用 v-for</h2><blockquote>
+<p>这一小节假设你已了解组件的相关知识，或者你也可以先跳过这里，之后再回来看。</p>
+</blockquote>
+<p>我们可以直接在组件上使用 v-for，和在一般的元素上使用没有区别 (别忘记提供一个 key)：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="绑定数组-1"><a href="#绑定数组-1" class="headerlink" title="绑定数组"></a>绑定数组</h3><p>我们还可以给 :style 绑定一个包含多个样式对象的数组。这些对象会被合并后渲染到同一元素上：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>但是，这不会自动将任何数据传递给组件，因为组件有自己独立的作用域。为了将迭代后的数据传递到组件中，我们还需要传递 props：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:item</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:key</span>=<span class="string">"item.id"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="自动前缀"><a href="#自动前缀" class="headerlink" title="自动前缀"></a>自动前缀</h3><p>当你在 :style 中使用了需要浏览器特殊前缀的 CSS 属性时，Vue 会自动为他们加上相应的前缀。Vue 是在运行时检查该属性是否支持在当前浏览器中使用。如果浏览器不支持某个属性，那么将尝试加上各个浏览器特殊前缀，以找到哪一个是被支持的。</p>
-<h3 id="样式多值"><a href="#样式多值" class="headerlink" title="样式多值"></a>样式多值</h3><p>你可以对一个样式属性提供多个 (不同前缀的) 值，举例来说：</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>不自动将 item 注入组件的原因是，这会使组件与 v-for 的工作方式紧密耦合。明确其数据的来源可以使组件在其他情况下重用。</p>
+<p>这里是一个简单的 Todo List 的例子，展示了如何通过 v-for 来渲染一个组件列表，并向每个实例中传入不同的数据。</p>
+<h2 id="数组变化侦测"><a href="#数组变化侦测" class="headerlink" title="数组变化侦测"></a>数组变化侦测</h2><h3 id="变更方法"><a href="#变更方法" class="headerlink" title="变更方法"></a>变更方法</h3><p>Vue 能够侦听响应式数组的变更方法，并在它们被调用时触发相关的更新。这些变更方法包括：</p>
+<ul>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>splice()</li>
+<li>sort()</li>
+<li>reverse()</li>
+</ul>
+<h3 id="替换一个数组"><a href="#替换一个数组" class="headerlink" title="替换一个数组"></a>替换一个数组</h3><p>变更方法，顾名思义，就是会对调用它们的原数组进行变更。相对地，也有一些不可变 (immutable) 方法，例如 filter()，concat() 和 slice()，这些都不会更改原数组，而总是<strong>返回一个新数组</strong>。当遇到的是非变更方法时，我们需要将旧的数组替换为新的：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">items</span> = <span class="variable language_">this</span>.<span class="property">items</span>.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item.<span class="property">message</span>.<span class="title function_">match</span>(<span class="regexp">/Foo/</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<p>你可能认为这将导致 Vue 丢弃现有的 DOM 并重新渲染整个列表——幸运的是，情况并非如此。Vue 实现了一些巧妙的方法来最大化对 DOM 元素的重用，因此用另一个包含部分重叠对象的数组来做替换，仍会是一种非常高效的操作。</p>
+<h2 id="展示过滤或排序后的结果"><a href="#展示过滤或排序后的结果" class="headerlink" title="展示过滤或排序后的结果"></a>展示过滤或排序后的结果</h2><p>有时，我们希望显示数组经过过滤或排序后的内容，而不实际变更或重置原始数据。在这种情况下，你可以创建返回已过滤或已排序数组的计算属性。</p>
+<p>举例来说：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">numbers</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">  }</span><br><span class="line">},</span><br><span class="line"><span class="attr">computed</span>: {</span><br><span class="line">  <span class="title function_">evenNumbers</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">numbers</span>.<span class="title function_">filter</span>(<span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span> === <span class="number">0</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in evenNumbers"</span>&gt;</span>{{ n }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在计算属性不可行的情况下 (例如在多层嵌套的 v-for 循环中)，你可以使用以下方法：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">return</span> {</span><br><span class="line">    <span class="attr">sets</span>: [[ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]]</span><br><span class="line">  }</span><br><span class="line">},</span><br><span class="line"><span class="attr">methods</span>: {</span><br><span class="line">  <span class="title function_">even</span>(<span class="params">numbers</span>) {</span><br><span class="line">    <span class="keyword">return</span> numbers.<span class="title function_">filter</span>(<span class="function"><span class="params">number</span> =&gt;</span> number % <span class="number">2</span> === <span class="number">0</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-for</span>=<span class="string">"numbers in sets"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in even(numbers)"</span>&gt;</span>{{ n }}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在计算属性中使用 reverse() 和 sort() 的时候务必小心！这两个方法将变更原始数组，计算函数中不应该这么做。请在调用这些方法之前创建一个原数组的副本：</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- return numbers.reverse()</span></span><br><span class="line"><span class="addition">+ return [...numbers].reverse()</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
 
                 
             </div>
@@ -706,7 +723,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/5%E3%80%81Class%20%E4%B8%8E%20Style%20%E7%BB%91%E5%AE%9A/">https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/5%E3%80%81Class%20%E4%B8%8E%20Style%20%E7%BB%91%E5%AE%9A/</a>
+                    <a href="https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/7%E3%80%81%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">https://le-m76.github.io/mao.github.io/mao.github.io/2025/11/27/7%E3%80%81%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -915,17 +932,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/mao.github.io/2025/11/27/6%E3%80%81%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">
+                <a href="/mao.github.io/2025/11/27/7%E3%80%81%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/mao.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="条件渲染">
+                        <img src="/mao.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="列表渲染">
                         
-                        <span class="card-title">条件渲染</span>
+                        <span class="card-title">列表渲染</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -935,9 +953,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -950,6 +968,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -968,13 +987,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mao.github.io/2025/11/27/4%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/">
+                <a href="/mao.github.io/2025/11/27/6%E3%80%81%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/mao.github.io/medias/featureimages/22.jpg" class="responsive-img" alt="模板语法">
+                        <img src="/mao.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="条件渲染">
                         
-                        <span class="card-title">模板语法</span>
+                        <span class="card-title">条件渲染</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
