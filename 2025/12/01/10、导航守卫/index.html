@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="安装Git, 博客，技术，前端，后端">
+    <meta name="keywords" content="导航守卫, 博客，技术，前端，后端">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>安装Git | 小毛的博客</title>
+    <title>导航守卫 | 小毛的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">安装Git</h1>
+                    <h1 class="description center-align post-title">导航守卫</h1>
                 </div>
             </div>
         </div>
@@ -446,8 +446,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -458,8 +458,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                博客
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
                     </div>
@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-11-28
+                    2025-12-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-11-28
+                    2025-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    126
+                    1.4k
                 </div>
                 
 
@@ -512,31 +512,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="如何安装Git"><a href="#如何安装Git" class="headerlink" title="如何安装Git"></a>如何安装Git</h1><h2 id="1、打开Git的官网-https-git-scm-cn-downloads"><a href="#1、打开Git的官网-https-git-scm-cn-downloads" class="headerlink" title="1、打开Git的官网:https://git-scm.cn/downloads"></a>1、打开Git的官网:<a target="_blank" rel="noopener" href="https://git-scm.cn/downloads">https://git-scm.cn/downloads</a></h2><p>选择Windows进行下载</p>
-<p><img src="/asset/0_1128_01.png"></p>
-<p><img src="/asset/0_1128_02.png"></p>
-<p>双击下载后的<code>Git-2.50.1-64-bit.exe</code>,开始安装，这个界面只要展示了GPL的协议，点击Next下一步</p>
-<p><img src="/asset/0_1128_03.png"></p>
-<p><img src="/asset/0_1128_04.png"></p>
-<p><img src="/asset/0_1128_05.png"></p>
-<p><img src="/asset/0_1128_06.png"></p>
-<p><img src="/asset/0_1128_07.png"></p>
-<p><img src="/asset/0_1128_08.png"></p>
-<p><img src="/asset/0_1128_09.png"></p>
-<p><img src="/asset/0_1128_10.png"></p>
-<p><img src="/asset/0_1128_11.png"></p>
-<p><img src="/asset/0_1128_12.png"></p>
-<p><img src="/asset/0_1128_13.png"></p>
-<p><img src="/asset/0_1128_14.png"></p>
-<p><img src="/asset/0_1128_15.png"></p>
-<p>安装完成后，点击win 按键打开菜单.找到Git 运行Git Bash</p>
-<p><img src="/asset/0_1128_16.png"></p>
-<p>分别输入：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 配置全局邮箱</span><br><span class="line">git config --global user.email "2148270672@qq.com"</span><br><span class="line"></span><br><span class="line"># 配置全局用户名</span><br><span class="line">git config --global user.name "m"</span><br></pre></td></tr></tbody></table></figure>
+                <h1 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h1><p>译者注</p>
+<p>“导航”表示路由正在发生改变。</p>
+<p>正如其名，<code>vue-router</code> 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
+<p>记住<strong>参数或查询的改变并不会触发进入/离开的导航守卫</strong>。你可以通过<a target="_blank" rel="noopener" href="https://v3.router.vuejs.org/zh/guide/essentials/dynamic-matching.html#%E5%93%8D%E5%BA%94%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E5%8C%96">观察 <code>$route</code> 对象</a>来应对这些变化，或使用 <code>beforeRouteUpdate</code> 的组件内守卫。</p>
+<p><a target="_blank" rel="noopener" href="https://vueschool.io/lessons/how-to-configure-an-authentication-middleware-route-guard-with-vue-router?friend=vuerouter">观看 Vue School 的导航守卫如何工作的免费视频课程 (英文)</a></p>
+<h2 id="全局前置守卫"><a href="#全局前置守卫" class="headerlink" title="全局前置守卫"></a>全局前置守卫</h2><p>你可以使用 <code>router.beforeEach</code> 注册一个全局前置守卫：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>({ ... })</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="/asset/0_1128_17.png"></p>
-<p>最后运行 git config –list 验证是否配置成功！</p>
-<p><img src="/asset/0_1128_18.png"></p>
+<p>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 <strong>等待中</strong>。</p>
+<p>每个守卫方法接收三个参数：</p>
+<ul>
+<li><strong><code>to: Route</code></strong>: 即将要进入的目标 <a target="_blank" rel="noopener" href="https://v3.router.vuejs.org/zh/api/#%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1">路由对象</a></li>
+<li><strong><code>from: Route</code></strong>: 当前导航正要离开的路由</li>
+<li><strong><code>next: Function</code></strong>: 一定要调用该方法来 <strong>resolve</strong> 这个钩子。执行效果依赖 <code>next</code> 方法的调用参数。<ul>
+<li><strong><code>next()</code></strong>: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 <strong>confirmed</strong> (确认的)。</li>
+<li><strong><code>next(false)</code></strong>: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 <code>from</code> 路由对应的地址。</li>
+<li><strong><code>next('/')</code> 或者 <code>next({ path: '/' })</code></strong>: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 <code>next</code> 传递任意位置对象，且允许设置诸如 <code>replace: true</code>、<code>name: 'home'</code> 之类的选项以及任何用在 <a target="_blank" rel="noopener" href="https://v3.router.vuejs.org/zh/api/#to"><code>router-link</code> 的 <code>to</code> prop</a> 或 <a target="_blank" rel="noopener" href="https://v3.router.vuejs.org/zh/api/#router-push"><code>router.push</code></a> 中的选项。</li>
+<li><strong><code>next(error)</code></strong>: (2.4.0+) 如果传入 <code>next</code> 的参数是一个 <code>Error</code> 实例，则导航会被终止且该错误会被传递给 <a target="_blank" rel="noopener" href="https://v3.router.vuejs.org/zh/api/#router-onerror"><code>router.onError()</code></a> 注册过的回调。</li>
+</ul>
+</li>
+</ul>
+<p><strong>确保 <code>next</code> 函数在任何给定的导航守卫中都被严格调用一次。它可以出现多于一次，但是只能在所有的逻辑路径都不重叠的情况下，否则钩子永远都不会被解析或报错</strong>。这里有一个在用户未能验证身份时重定向到 <code>/login</code> 的示例：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BAD</span></span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.<span class="property">name</span> !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) <span class="title function_">next</span>({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="comment">// 如果用户未能验证身份，则 `next` 会被调用两次</span></span><br><span class="line">  <span class="title function_">next</span>()</span><br><span class="line">})</span><br><span class="line"><span class="comment">// GOOD</span></span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.<span class="property">name</span> !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) <span class="title function_">next</span>({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="keyword">else</span> <span class="title function_">next</span>()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="全局解析守卫"><a href="#全局解析守卫" class="headerlink" title="全局解析守卫"></a>全局解析守卫</h2><blockquote>
+<p>2.5.0 新增</p>
+</blockquote>
+<p>在 2.5.0+ 你可以用 <code>router.beforeResolve</code> 注册一个全局守卫。这和 <code>router.beforeEach</code> 类似，区别是在导航被确认之前，<strong>同时在所有组件内守卫和异步路由组件被解析之后</strong>，解析守卫就被调用。</p>
+<h2 id="全局后置钩子"><a href="#全局后置钩子" class="headerlink" title="全局后置钩子"></a>全局后置钩子</h2><p>你也可以注册全局后置钩子，然而和守卫不同的是，这些钩子不会接受 <code>next</code> 函数也不会改变导航本身：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">afterEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="路由独享的守卫"><a href="#路由独享的守卫" class="headerlink" title="路由独享的守卫"></a>路由独享的守卫</h2><p>你可以在路由配置上直接定义 <code>beforeEnter</code> 守卫：</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>({</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/foo'</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="title class_">Foo</span>,</span><br><span class="line">      <span class="attr">beforeEnter</span>: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这些守卫与全局前置守卫的方法参数是一样的。</p>
+<h2 id="组件内的守卫"><a href="#组件内的守卫" class="headerlink" title="组件内的守卫"></a>组件内的守卫</h2><p>最后，你可以在路由组件内直接定义以下路由导航守卫：</p>
+<ul>
+<li><code>beforeRouteEnter</code></li>
+<li><code>beforeRouteUpdate</code> (2.2 新增)</li>
+<li><code>beforeRouteLeave</code></li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Foo</span> = {</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`...`</span>,</span><br><span class="line">  <span class="title function_">beforeRouteEnter</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) {</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  },</span><br><span class="line">  <span class="title function_">beforeRouteUpdate</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) {</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  },</span><br><span class="line">  <span class="title function_">beforeRouteLeave</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) {</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>beforeRouteEnter</code> 守卫 <strong>不能</strong> 访问 <code>this</code>，因为守卫在导航确认前被调用，因此即将登场的新组件还没被创建。</p>
+<p>不过，你可以通过传一个回调给 <code>next</code>来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteEnter</span> (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="title function_">next</span>(<span class="function"><span class="params">vm</span> =&gt;</span> {</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意 <code>beforeRouteEnter</code> 是支持给 <code>next</code> 传递回调的唯一守卫。对于 <code>beforeRouteUpdate</code> 和 <code>beforeRouteLeave</code> 来说，<code>this</code> 已经可用了，所以<strong>不支持</strong>传递回调，因为没有必要了。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteUpdate</span> (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="comment">// just use `this`</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = to.<span class="property">params</span>.<span class="property">name</span></span><br><span class="line">  <span class="title function_">next</span>()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 <code>next(false)</code> 来取消。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">beforeRouteLeave</span> (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="keyword">const</span> answer = <span class="variable language_">window</span>.<span class="title function_">confirm</span>(<span class="string">'Do you really want to leave? you have unsaved changes!'</span>)</span><br><span class="line">  <span class="keyword">if</span> (answer) {</span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    <span class="title function_">next</span>(<span class="literal">false</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h2><ol>
+<li>导航被触发。</li>
+<li>在失活的组件里调用 <code>beforeRouteLeave</code> 守卫。</li>
+<li>调用全局的 <code>beforeEach</code> 守卫。</li>
+<li>在重用的组件里调用 <code>beforeRouteUpdate</code> 守卫 (2.2+)。</li>
+<li>在路由配置里调用 <code>beforeEnter</code>。</li>
+<li>解析异步路由组件。</li>
+<li>在被激活的组件里调用 <code>beforeRouteEnter</code>。</li>
+<li>调用全局的 <code>beforeResolve</code> 守卫 (2.5+)。</li>
+<li>导航被确认。</li>
+<li>调用全局的 <code>afterEach</code> 钩子。</li>
+<li>触发 DOM 更新。</li>
+<li>调用 <code>beforeRouteEnter</code> 守卫中传给 <code>next</code> 的回调函数，创建好的组件实例会作为回调函数的参数传入。</li>
+</ol>
 
                 
             </div>
@@ -563,7 +605,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://le-m76.github.io/mao.github.io/2025/11/28/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85GIt/">https://le-m76.github.io/mao.github.io/2025/11/28/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85GIt/</a>
+                    <a href="https://le-m76.github.io/mao.github.io/2025/12/01/10%E3%80%81%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/">https://le-m76.github.io/mao.github.io/2025/12/01/10%E3%80%81%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,8 +643,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -696,13 +738,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/11/28/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D/">
+                <a href="/2025/12/01/11%E3%80%81%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="如何创建属于自己的域名">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="路由元信息">
                         
-                        <span class="card-title">如何创建属于自己的域名</span>
+                        <span class="card-title">路由元信息</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -713,14 +755,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-11-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -730,8 +772,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%9F%E5%90%8D/">
-                        <span class="chip bg-color">域名</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
@@ -745,13 +787,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/11/28/8%E3%80%81%E6%8F%92%E6%A7%BD/">
+                <a href="/2025/12/01/9%E3%80%81Vue%E8%B7%AF%E7%94%B1%E6%8E%A7%E5%88%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="插槽">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="创建 Vue Router 项目">
                         
-                        <span class="card-title">插槽</span>
+                        <span class="card-title">创建 Vue Router 项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -762,7 +804,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-12-01
                             </span>
                         <span class="publish-author">
                             
