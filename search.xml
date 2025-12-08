@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SSM整合Vue＋接口文档测试</title>
+      <link href="/2025/12/08/2-1%E3%80%81SSM%E6%95%B4%E5%90%88Vue%E3%80%81%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/"/>
+      <url>/2025/12/08/2-1%E3%80%81SSM%E6%95%B4%E5%90%88Vue%E3%80%81%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、创建Maven管理的SSM架构Java项目"><a href="#一、创建Maven管理的SSM架构Java项目" class="headerlink" title="一、创建Maven管理的SSM架构Java项目"></a>一、创建Maven管理的SSM架构Java项目</h1><h2 id="1、下载Maven"><a href="#1、下载Maven" class="headerlink" title="1、下载Maven"></a>1、下载Maven</h2><p>官网：<a href="https://maven.apache.org/">Welcome to Apache Maven – Maven</a></p><p>Maven 3.6.3 安装包：<a href="https://wwalm.lanzoue.com/i5hgV3d4ehuh">https://wwalm.lanzoue.com/i5hgV3d4ehuh</a></p><p>访问密码：123</p><p>下载后将文件解压到一个盘里：</p><p><img src="/asset/1_1208_01.png"></p><p>使用代码编辑器打开conf文件目录下的settings.xml文件<br><img src="/asset/1_1208_02.png"><br><img src="/asset/1_1208_03.png"></p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;E:\Tools1\maven&lt;/localRepository&gt;</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h2 id="2、使用IDEA创建Maven项目"><a href="#2、使用IDEA创建Maven项目" class="headerlink" title="2、使用IDEA创建Maven项目"></a>2、使用IDEA创建Maven项目</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>路由懒加载</title>
       <link href="/2025/12/01/15%E3%80%81%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
       <url>/2025/12/01/15%E3%80%81%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
